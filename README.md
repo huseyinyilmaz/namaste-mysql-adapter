@@ -2,7 +2,7 @@ Namaste mysql adapter
 =====================
 
 ```
-huseyin@admins-MBP namaste-shim % echo "SELECT * FROM foo" | mysql -h 127.0.0.1 --table
+$ echo "SELECT * FROM foo" | mysql -h 127.0.0.1 --table
 +------+-------------------+
 | id   | name              |
 +------+-------------------+
@@ -12,5 +12,5 @@ huseyin@admins-MBP namaste-shim % echo "SELECT * FROM foo" | mysql -h 127.0.0.1 
 |    4 | Mert              |
 |    5 | SELECT * FROM foo |
 +------+-------------------+
-huseyin@admins-MBP namaste-shim %
+$
 ```
