@@ -1,10 +1,3 @@
-//! After running this, you should be able to run:
-//!
-//! ```console
-//! $ echo "SELECT * FROM foo" | mysql -h 127.0.0.1 --table
-//! $
-//! ```
-
 extern crate msql_srv;
 extern crate mysql;
 
@@ -104,6 +97,3 @@ fn main() {
         t.join().unwrap();
     }
 }
-// fn main() {
-//     println!("Hello, world!");
-// }
