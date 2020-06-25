@@ -5,6 +5,7 @@ use msql_srv::*;
 use std::io;
 use std::net;
 use std::thread;
+use nom_sql::parser::parse_query;
 
 struct Backend;
 // impl<W: io::Write> MysqlShim<W> for Backend {
@@ -49,7 +50,7 @@ impl<W: io::Write> MysqlShim<W> for Backend {
     }
     fn on_close(&mut self, _: u32) {}
 
-    fn on_init(&mut self, _: &str, writer: InitWriter<W>) -> io::Result<()> { Ok(()) }
+    fn on_init(&mut self, _: &str, _writer: InitWriter<W>) -> io::Result<()> { Ok(()) }
 
     fn on_query(&mut self, query: &str, results: QueryResultWriter<W>) -> io::Result<()> {
         let users = vec![
@@ -59,6 +60,8 @@ impl<W: io::Write> MysqlShim<W> for Backend {
             User{id: 4, name: "Mert".to_string()},
             User{id: 5, name: query.to_string()},
         ];
+        let parsed_query = parse_query(query);
+        println!("{:?}", parsed_query);
         let cols = [
             Column {
                 table: "user".to_string(),
