@@ -8,6 +8,6 @@ edition = "2018"
 
 [dependencies]
 
-mysql = "18.2.0"
+mysql = "20.0.1"
 msql-srv = "0.9.1"
 nom-sql = "0.0.11"
